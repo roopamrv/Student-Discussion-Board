@@ -63,7 +63,6 @@ def registration():
         userid = request.form['userid']
         password = request.form['password']
         email = request.form['email']
-        usertype = request.form['usertype']
         conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         conn.execute('SELECT * FROM accounts WHERE userid = % s', (userid,))
         account = conn.fetchone()
@@ -74,7 +73,7 @@ def registration():
         elif not userid or not password or not email:
             msg = 'Please fill all details'
         else:
-            conn.execute('INSERT INTO accounts VALUES (NULL, % s, % s, % s, % s)', (userid, password, email, usertype,))
+            conn.execute('INSERT INTO accounts (userid, password, email) VALUES (% s, % s, % s)', (userid, password, email,))
             mysql.connection.commit()
             msg = 'You have successfully registered !'
             return render_template('login.html', msg=msg)
