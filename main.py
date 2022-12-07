@@ -113,7 +113,8 @@ def posts(opt):
             print(res)
             if(len(res["result"])>0):
                 sys_reply=[]
-                sys_reply.append(res["result"][0]["content"])
+                sys_reply.append(res["result"][0]["content"].split(">", 3)[2].split("<",1)[0])
+                print(sys_reply)
                 sys_reply.append("System")
                 sys_reply.append(res["result"][0]["last_updated_on"])
                 sys_data.append(sys_reply)

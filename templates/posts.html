@@ -35,7 +35,7 @@
               {% for sys_reply in post['sys_data'] %}
                 <div>
                   <p style="margin-right:80%;color:blue" >Similar post on ServiceNow:</p>
-                <textarea class="form-control" disabled>{{sys_reply[0] | safe}} </textarea>
+                <textarea class="form-control" disabled>{{sys_reply[0]}} </textarea>
                   </div>
 
               <p style="color:blue" >Replied by:{{sys_reply[1]}} Time:{{sys_reply[2]}}</p>
