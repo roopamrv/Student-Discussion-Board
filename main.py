@@ -136,7 +136,7 @@ def createreply():
         conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         conn.execute('INSERT INTO replies(postreply, post_id, account_id) VALUES (% s, % s, % s)', (reply, postid, account_id))
         mysql.connection.commit()
-        msg = 'Post created successfully!'
+        msg = 'Post Created Successfully!'
         url = url_for('posts', msg=msg)
         return redirect(url)
 
