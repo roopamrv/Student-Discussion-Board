@@ -20,15 +20,13 @@
 				<form class="col-lg-6 offset-lg-3 " action="{{ url_for('registration') }}" method="post">
 				<div class="msg">{{ msg }}</div>
 					<div class="row justify-content-center">
-					<input class="form-control" id="userid" name="userid" type="text" placeholder="UserId" class="textbox"/></br></br>
-					<input class="form-control" id="password" name="password" type="password" placeholder="Password" class="textbox"/></br></br>
-					<input class="form-control" id="email" name="email" type="text" placeholder="Email ID" class="textbox"/></br></br>
-
-					<select class="form-control" name="usertype" id="usertype">
-						<option value=1>User</option>
-						<option value=2>Administrator</option>
-					</select></br></br>
-
+					<input class="form-control" id="userid" name="userid" type="text" placeholder="UserId" class="textbox" required/></br></br>
+					<input class="form-control" id="password" name="password" type="password" placeholder="Password" class="textbox" required/></br></br>
+					<input class="form-control" id="email" name="email" type="text" placeholder="Email ID" class="textbox" required/></br></br>
+<!--					<select class="form-control" name="usertype" id="usertype">-->
+<!--						<option value=1>User</option>-->
+<!--						<option value=2>Administrator</option>-->
+<!--					</select></br></br>-->
 					<button type="submit" class="btn btn-primary">Register</button></br>
 					</div></form>
 	<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>

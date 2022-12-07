@@ -7,7 +7,7 @@
 		<title> Login </title>
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 	</head>
-	<body><section class="vh-100" style="background-color: #eee;">
+	<body><div class="vh-100" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -23,8 +23,8 @@
 				<form class="col-lg-6 offset-lg-3 " action="{{ url_for('login') }}" method="post">
 				<div class="msg">{{ msg }}</div>
 					<div class="row justify-content-center">
-					<input class="form-control" id="userid" name="userid" type="text" placeholder="User Id" class="textbox"/></br></br>
-					<input class="form-control" id="password" name="password" type="password" placeholder="Password" class="textbox"/></br></br></br>
+					<input class="form-control" id="userid" name="userid" type="text" placeholder="User Id" class="textbox" required/></br></br>
+					<input class="form-control" id="password" name="password" type="password" placeholder="Password" class="textbox" required/></br></br></br>
 <!--					<input id="usertype" name="usertype" type="text" placeholder="Password" value=1 class="textbox"/></br></br></br>-->
 					<button type="submit" class="btn btn-success">Sign In</button></br>
 					</div></form>
@@ -32,5 +32,6 @@
 			<p class="bottom">Don't have an account? <a class="bottom" href="{{url_for('registration')}}"> Sign Up here</a></p>
 		</div>
 		</div>
+	</div></div></div>
 	</body>
 </html>

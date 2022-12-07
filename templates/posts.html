@@ -32,6 +32,14 @@
                 <br>
               </form>
             </div>
+              {% for sys_reply in post['sys_data'] %}
+                <div>
+                  <p style="margin-right:80%;color:blue" >Similar post on ServiceNow:</p>
+                <textarea class="form-control" disabled>{{sys_reply[0]}} </textarea>
+                  </div>
+
+              <p style="color:blue" >Replied by:{{sys_reply[1]}} Time:{{sys_reply[2]}}</p>
+              {% endfor%}
               {% for reply in post['data'] %}
               <div id="comment-container">
                 <div>
@@ -49,12 +57,11 @@
                     function myFunction(x) {
                       var count=0;
                       var newDiv = document.createElement("div");
-
                       x.classList.toggle("fa-thumbs-down");
                       if (x.innerHTML === "Like") {
                         count++;
                         x.innerHTML = "Unlike";
-                        newDiv.innerHTML = "Liked by {{reply[1]}}";
+                        newDiv.innerHTML = (str)count+" Likes";
                         console.log(newDiv);
                       } else {
                         x.innerHTML = "Like";
