@@ -55,17 +55,15 @@
                 </div>
                   <script>
                     function myFunction(x) {
-                      var count=0;
+
                       var newDiv = document.createElement("div");
                       x.classList.toggle("fa-thumbs-down");
                       if (x.innerHTML === "Like") {
-                        count++;
                         x.innerHTML = "Unlike";
-                        newDiv.innerHTML = (str)count+" Likes";
+                        newDiv.innerHTML = "Liked by {{reply[1]}}";
                         console.log(newDiv);
                       } else {
                         x.innerHTML = "Like";
-                        count--;
                         newDiv.innerHTML = "";
                         console.log(newDiv);
                       }
