@@ -1,0 +1,37 @@
+My branch
+
+
+SQL:
+
+REPLIES
+CREATE TABLE replies (
+       reply_id INT PRIMARY KEY AUTO_INCREMENT,
+       postreply VARCHAR(500) NOT NULL,
+       post_id INT,
+       account_id INT NOT NULL,
+       timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+       FOREIGN KEY (post_id) REFERENCES posts(id),
+       FOREIGN KEY (account_id) REFERENCES accounts(id)
+     );
+
+
+POSTS
+
+CREATE TABLE `posts` (
+       `id` int NOT NULL AUTO_INCREMENT,
+       `title` varchar (255) NOT NULL,
+       query varchar (255) NOT NULL,
+       timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+       `description` longtext,
+       PRIMARY KEY (`id`)
+     );
+
+ACCOUNTS
+CREATE TABLE `accounts`(
+       `id` int NOT NULL AUTO_INCREMENT,
+       `userid` varchar (20) NOT NULL,
+       `password` varchar (20) NOT NULL,
+       `email` varchar (20) DEFAULT NULL,
+       `user_type` int DEFAULT NULL,
+       PRIMARY KEY (`id`)
+     );

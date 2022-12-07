@@ -1,0 +1,20 @@
+runtime: python39
+
+handlers: 
+- url: /.*
+  script: main.app
+
+entrypoint: gunicorn -b :$PORT main:app
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 1
+  disk_size_gb: 10
+
+env_variables:
+  CLOUD_SQL_USERNAME: discussionboard
+  CLOUD_SQL_PASSWORD: discussionboard 
+  CLOUD_SQL_DATABASE_NAME: DiscussionBoard
+  CLOUD_SQL_CONNECTION_NAME: discussionboard-367000:us-central1:discussion-board

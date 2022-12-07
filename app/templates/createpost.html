@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+<div align="center">
+		<div align="center" class="border">
+			<div class="header"><br>
+				<h3 class="word">Create Post</h3><br>
+			</div>
+            <div class="container">
+              <div class="row justify-content-center">
+                <form class="col-lg-6" action="{{ url_for('createpost') }}" method="post">
+				<div class="msg">{{ msg }}</div>
+					<div class="row justify-content-center">
+					<input class="form-control" id="title" name="title" type="text" placeholder="Enter Title" class="textbox" required><br><br>
+					<input class="form-control" id="query" name="query" type="text" placeholder="Enter Query" class="textbox" required><br><br>
+                        <textarea class="form-control" id="description" name="description" placeholder="Describe query" rows="3"></textarea>
+                        </div><br>
+					<button type="submit" class="btn btn-primary">Create Post</button><br><br>
+					</form>
+              </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>
+{% endblock %}

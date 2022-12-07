@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block content %} <html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>Posts</title>
+  </head>
+  <body>
+    <div align="center">
+      <div align="center" class="border">
+        <div class="header">
+          <h2 class="word">Posts</h2>
+        </div>
+        <div class="container">
+          <div>
+            {% for post in posts %}
+            <div style="border:1px solid black; margin:5px">
+              <div>
+                <br/>
+              <h5>Title: {{post['title']}} </h5>
+              <h6 style="text-align:center">Query: {{post['query']}}</h6>
+              <h6>Description: {{post['description']}}</h6>
+                <p style="padding-left:80%;color:blue" >Time: {{post['timestamp']}}</p>
+            </div>
+            <div>
+              <label for="reply">Response: <br/>
+              </label>
+              <form class="col-lg-6" action="{{ url_for('createreply') }}" method="post">
+                <input class="form-control" id="postid" name="postid" type="text" value="{{post['id']}}" hidden />
+                <textarea class="form-control" id="reply" name="reply" rows="2"></textarea>
+                <button type="submit" class="btn btn-primary" style="margin-left:87%">Reply</button>
+                <br>
+                <br>
+              </form>
+            </div>
+              {% for reply in post['data'] %}
+              <div id="comment-container">
+                <div>
+                <textarea class="form-control" disabled>{{reply[0]}} </textarea>
+                  </div>
+                <div class="form-control">
+                  <!-- Add icon library -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <!-- Use an element to toggle between a like/dislike icon -->
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up" style="margin-left:80%">Like</i>
+
+                </div>
+                  <script>
+                    function myFunction(x) {
+                      var count=0;
+                      var newDiv = document.createElement("div");
+
+                      x.classList.toggle("fa-thumbs-down");
+                      if (x.innerHTML === "Like") {
+                        count++;
+                        x.innerHTML = "Unlike";
+                        newDiv.innerHTML = "Liked by {{reply[1]}}";
+                        console.log(newDiv);
+                      } else {
+                        x.innerHTML = "Like";
+                        count--;
+                        newDiv.innerHTML = "";
+                        console.log(newDiv);
+                      }
+                    }
+                  </script>
+                <p style="color:blue" >Replied by:{{reply[1]}} Time:{{reply[2]}}</p>
+              </div>
+
+             {% endfor%} </div> {% endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> {% endblock %}
