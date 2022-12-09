@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <title>Posts</title>
   </head>
+  	<style>
+		.button:hover
+		{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		input[type=text], select {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+	</style>
   <body>
-    <div align="center">
+    <div align="center" style="background-color: #E1DEDA  ">
       <div align="center" class="border">
         <div class="header">
-          <h2 class="word">Posts</h2>
+          <h2 class="word" style="color:white">Posts</h2>
         </div>
-        <div class="container">
+        <div style="background-color:white;margin-left:120px;margin-right:120px">
           <div>
             {% for post in posts %}
             <div style="border:1px solid black; margin:5px">
@@ -19,15 +33,15 @@
               <h5>Title: {{post['title']}} </h5>
               <h6 style="text-align:center">Query: {{post['query']}}</h6>
               <h6>Description: {{post['description']}}</h6>
-                <p style="padding-left:80%;color:blue" >Time: {{post['timestamp']}}</p>
+                <p style="padding-left:80%;color:grey" >Time: {{post['timestamp']}}</p>
             </div>
             <div>
               <label for="reply">Response: <br/>
               </label>
               <form class="col-lg-6" action="{{ url_for('createreply') }}" method="post">
                 <input class="form-control" id="postid" name="postid" type="text" value="{{post['id']}}" hidden />
-                <textarea class="form-control" id="reply" name="reply" rows="2"></textarea>
-                <button type="submit" class="btn btn-primary" style="margin-left:87%">Reply</button>
+                <textarea class="form-control" id="reply" name="reply" type="text" rows="2"></textarea>
+                <button type="submit" class="btn btn-primary button" style="margin-left:87%">Reply</button>
                 <br>
                 <br>
               </form>

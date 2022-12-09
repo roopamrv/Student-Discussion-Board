@@ -6,8 +6,22 @@
     <meta charset="UTF-8">
     <title>Posts</title>
 </head>
+<style>
+		.button:hover
+		{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		input[type=text], select {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+	</style>
 <body>
-<div align="center">
+<div align="center" style="padding-top:150px">
 		<div align="center" class="border">
 			<div class="header"><br>
 				<h3 class="word">Create Post</h3><br>
@@ -21,7 +35,7 @@
 					<input class="form-control" id="query" name="query" type="text" placeholder="Enter Query" class="textbox" required><br><br>
                         <textarea class="form-control" id="description" name="description" placeholder="Describe query" rows="3"></textarea>
                         </div><br>
-					<button type="submit" class="btn btn-primary">Create Post</button><br><br>
+					<button type="submit" class="btn btn-primary button">Create Post</button><br><br>
 					</form>
               </div>
             </div>

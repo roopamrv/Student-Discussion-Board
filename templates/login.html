@@ -7,16 +7,31 @@
 		<title> Login </title>
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 	</head>
-	<body><div class="vh-100" style="background-color: #eee;">
+	<style>
+		.button:hover
+		{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		input[type=text], select {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+	</style>
+	<body><div class="vh-100" style="background-color: #0b2b7a;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-			</br>
+        <div class="card text-black" style="border-radius: 25px;text-align:center">
+			<div id = "image">
+			  <img src="/static/images/UTA.jpeg" style="width=100px;height:100px;">
+		  </div>
 			<div class="header">
 				<h2 class="word" align="center">Student Discussion Board</h2>
 			</div>
-			</br></br>
 			<div class="header">
 				<h3 class="word" align="center">Login</h3>
 			</div>
@@ -26,7 +41,7 @@
 					<input class="form-control" id="userid" name="userid" type="text" placeholder="User Id" class="textbox" required/></br></br>
 					<input class="form-control" id="password" name="password" type="password" placeholder="Password" class="textbox" required/></br></br></br>
 <!--					<input id="usertype" name="usertype" type="text" placeholder="Password" value=1 class="textbox"/></br></br></br>-->
-					<button type="submit" class="btn btn-success">Sign In</button></br>
+					<button type="submit" class="btn btn-success button">Sign In</button></br>
 					</div></form>
 			</h2>
 			<p class="bottom">Don't have an account? <a class="bottom" href="{{url_for('registration')}}"> Sign Up here</a></p>
